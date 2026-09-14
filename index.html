@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian &amp; Co. — Strategy Consulting</title>
+<meta name="description" content="Meridian & Co. helps growing companies make their next big decision with confidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B2430;
+    --ivory:#F7F5F0;
+    --slate:#52606D;
+    --gold:#C89B3C;
+    --sage:#7C9082;
+    --line:#D9D4C7;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--navy);
+    font-family:'Public Sans', -apple-system, sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Newsreader', Georgia, serif;
+    font-weight:500;
+    line-height:1.15;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(247,245,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1120px;margin:0 auto;}
+  .brand{font-family:'Newsreader',serif;font-size:20px;font-weight:600;letter-spacing:0.01em;text-decoration:none;}
+  .nav-links{display:flex;gap:36px;list-style:none;margin:0;padding:0;}
+  .nav-links a{text-decoration:none;font-size:15px;color:var(--slate);}
+  .nav-links a:hover{color:var(--navy);}
+  .nav-cta{
+    background:var(--navy);color:var(--ivory);text-decoration:none;
+    padding:10px 20px;font-size:14px;border-radius:var(--radius);
+  }
+  .nav-toggle{display:none;}
+
+  /* Hero */
+  .hero{padding:96px 0 88px;}
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:end;}
+  .hero h1{font-size:56px;max-width:560px;}
+  .hero p.lede{font-size:19px;color:var(--slate);max-width:420px;margin:28px 0 34px;}
+  .hero-actions{display:flex;gap:16px;align-items:center;}
+  .btn-primary{
+    background:var(--navy);color:var(--ivory);text-decoration:none;
+    padding:14px 26px;font-size:15px;border-radius:var(--radius);
+    border:1px solid var(--navy);
+  }
+  .btn-secondary{
+    text-decoration:none;color:var(--navy);font-size:15px;
+    border-bottom:1px solid var(--gold);padding-bottom:2px;
+  }
+  .hero-stats{border-left:1px solid var(--line);padding-left:40px;}
+  .stat{margin-bottom:28px;}
+  .stat:last-child{margin-bottom:0;}
+  .stat .num{font-family:'Newsreader',serif;font-size:38px;display:block;color:var(--navy);}
+  .stat .label{font-size:14px;color:var(--slate);}
+
+  /* Section shared */
+  section{padding:80px 0;border-top:1px solid var(--line);}
+  .section-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:56px;align-items:start;}
+  .section-head h2{font-size:34px;max-width:420px;}
+  .section-head p{color:var(--slate);font-size:16px;max-width:420px;margin:0;}
+
+  /* Services */
+  .service-list{border-top:1px solid var(--line);}
+  .service-row{
+    display:grid;grid-template-columns:260px 1fr 140px;gap:32px;
+    padding:32px 0;border-bottom:1px solid var(--line);align-items:baseline;
+  }
+  .service-row h3{font-size:22px;font-weight:500;}
+  .service-row p{color:var(--slate);font-size:15px;margin:0;max-width:480px;}
+  .service-row .tag{font-size:13px;color:var(--sage);text-align:right;align-self:baseline;}
+
+  /* Quote */
+  .quote-section{background:var(--navy);color:var(--ivory);border-top:none;}
+  .quote{font-family:'Newsreader',serif;font-style:italic;font-size:30px;line-height:1.4;max-width:760px;}
+  .quote-attr{margin-top:28px;font-family:'Public Sans',sans-serif;font-style:normal;font-size:14px;color:#B9C2CC;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;}
+  .about-grid h2{font-size:34px;max-width:380px;margin-bottom:24px;}
+  .about-grid p{color:var(--slate);font-size:16px;max-width:460px;margin:0 0 16px;}
+  .about-figures{border-left:1px solid var(--line);padding-left:40px;}
+  .fig-row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;}
+  .fig-row:first-child{padding-top:0;}
+  .fig-row span:first-child{color:var(--slate);}
+
+  /* Contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .contact-grid h2{font-size:34px;max-width:380px;}
+  .contact-grid p.lede{color:var(--slate);font-size:16px;max-width:420px;margin:20px 0 0;}
+  form{display:flex;flex-direction:column;gap:18px;}
+  label{font-size:14px;color:var(--slate);margin-bottom:6px;display:block;}
+  input,textarea{
+    width:100%;font-family:inherit;font-size:15px;padding:12px 14px;
+    border:1px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--navy);
+  }
+  textarea{resize:vertical;min-height:96px;}
+  .field{display:flex;flex-direction:column;}
+  .submit-row{margin-top:6px;}
+  .note{font-size:13px;color:var(--slate);margin-top:10px;}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--slate);}
+  .footer-row a{text-decoration:none;color:var(--slate);}
+
+  @media (max-width: 860px){
+    .wrap{padding:0 20px;}
+    .nav{padding:16px 20px;}
+    .nav-links{display:none;}
+    .hero{padding:56px 0 56px;}
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero h1{font-size:38px;}
+    .hero-stats{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:24px;display:flex;gap:32px;}
+    .stat{margin-bottom:0;}
+    .section-head{grid-template-columns:1fr;gap:16px;}
+    .service-row{grid-template-columns:1fr;gap:8px;}
+    .service-row .tag{text-align:left;}
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .about-figures{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:24px;}
+    .contact-grid{grid-template-columns:1fr;gap:32px;}
+    .quote{font-size:24px;}
+    section{padding:56px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand">Meridian &amp; Co.</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book a call</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="border-top:none;">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>We help growing companies make their next big decision with confidence.</h1>
+        <p class="lede">Meridian & Co. is an independent strategy practice for founders and operators who need a clear-eyed outside view before they commit.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Book a call</a>
+          <a href="#services" class="btn-secondary">See how we work</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="num">120+</span><span class="label">Engagements delivered since 2016</span></div>
+        <div class="stat"><span class="num">6 wks</span><span class="label">Average time to a decision-ready plan</span></div>
+        <div class="stat"><span class="num">4 people</span><span class="label">Senior team on every engagement, no juniors</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Three ways we work with you</h2>
+        <p>Every engagement is scoped to a specific decision, not a general retainer. You know what you're getting and when it lands.</p>
+      </div>
+      <div class="service-list">
+        <div class="service-row">
+          <h3>Growth strategy</h3>
+          <p>We map your market, pressure-test your assumptions, and leave you with a plan your team can actually execute.</p>
+          <span class="tag">4–6 weeks</span>
+        </div>
+        <div class="service-row">
+          <h3>Operating review</h3>
+          <p>A structured look at where your operations are costing you time or margin, with a prioritized fix list.</p>
+          <span class="tag">3–4 weeks</span>
+        </div>
+        <div class="service-row">
+          <h3>Fractional advisory</h3>
+          <p>Ongoing access to a senior partner for the decisions that come up between planning cycles.</p>
+          <span class="tag">Monthly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="wrap">
+      <p class="quote">"Meridian didn't hand us a deck. They handed us a decision we could stand behind, and stayed until we'd made it."</p>
+      <p class="quote-attr">— Head of Operations, mid-market logistics company</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <h2>Small team, senior attention</h2>
+        <p>Meridian & Co. was founded to fix a specific problem with consulting: too many junior hours billed at senior rates. Every engagement is led end to end by a partner who has actually run the kind of business you run.</p>
+        <p>We take on a limited number of clients at a time so that the people you meet in the first call are the same people doing the work in week six.</p>
+      </div>
+      <div class="about-figures">
+        <div class="fig-row"><span>Founded</span><span>2016</span></div>
+        <div class="fig-row"><span>Based</span><span>Chicago, working nationally</span></div>
+        <div class="fig-row"><span>Client size</span><span>$2M–$80M revenue</span></div>
+        <div class="fig-row"><span>Active clients at a time</span><span>Under 10</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Tell us what decision you're facing</h2>
+        <p class="lede">Send a few lines about where you are, and a partner will reply within one business day. You can also use the chat in the corner for a quicker question.</p>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Thanks — this is a placeholder form. Connect it to your email or CRM before launch.');">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="field">
+          <label for="message">What's the decision?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-primary" style="border:1px solid var(--navy);cursor:pointer;">Send message</button>
+        </div>
+        <p class="note">This form doesn't send anywhere yet — wire it up to your email service or CRM before you launch.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Meridian &amp; Co.</span>
+    <a href="mailto:hello@meridianandco.example">hello@meridianandco.example</a>
+  </div>
+</footer>
+
+<!-- Chat BEGIN -->
+<script>var APNW={s:{"id":"U1lBXQ8ECns","src":"https:\/\/s022-067.apntelecom.co:8003"}};
+(function(d,e,s){if(d.getElementById("apn-w"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="apn-w";a.src=s;m.parentNode.insertBefore(a,m)})
+(document,"script","https://s022-067.apntelecom.co:8003/chat/js/widget.js?v=4997");</script>
+<!-- END -->
+
+</body>
+</html>
